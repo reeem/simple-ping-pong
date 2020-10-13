@@ -1,7 +1,10 @@
 <template>
   <div>
-    <p>게임 오버</p>
-    <button @click="ready">처음으로 돌아가기</button>
+    <p>Game Over</p>
+    <form>
+      <input name="name" />
+    </form>
+    <!-- <NuxtLink to="/">처음으로 돌아가기</NuxtLink> -->
   </div>
 </template>
 

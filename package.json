@@ -1,14 +1,16 @@
 {
-  "name": "ping-pong-vue",
+  "name": "simple-ping-pong",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "nuxt",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "nuxt": "^2.14.6",
     "vue": "^2.6.11",
     "vuex": "^3.5.1"
   },

@@ -1,4 +1,4 @@
-# ping-pong-vue
+# simple-ping-pong
 
 ## Project setup
 ```

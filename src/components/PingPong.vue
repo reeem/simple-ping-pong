@@ -29,7 +29,7 @@
     const brickOffsetTop = 30;
     const brickOffsetLeft = 30;
 
-    let score = 0;
+    let score = 0; // [todo] store
 
     const bricks = [];
     let interval = null;
@@ -105,8 +105,9 @@
           dy = -dy;
         } else {
           interval && clearInterval(interval);
-          alert('Game Over');
-          store.commit('gameover');
+          // alert('Game Over');
+          location.href = '/gameover';
+          // store.commit('gameover');
         }
       }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>시작 버튼을 눌러주세요.</p>
-    <button @click="play">start</button>
+    <NuxtLink to="/play" class="anchor">start</NuxtLink>
+    <!-- <button @click="play">start</button> -->
   </div>
 </template>
 
@@ -17,3 +17,7 @@
     },
   };
 </script>
+
+<style lang="scss" scoped>
+  @import './common/common.scss';
+</style>
