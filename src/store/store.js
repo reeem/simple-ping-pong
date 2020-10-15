@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     status: 'ready',
+    point: 0,
   },
   mutations: {
     toggleStatus(state) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     gameover(state) {
       console.log('gameover!', state.status);
       state.status = 'gameover';
+    },
+    score(state, n) {
+      state.point += n;
     },
   },
 });

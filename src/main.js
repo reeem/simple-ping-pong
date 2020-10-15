@@ -5,6 +5,11 @@ import store from './store/store';
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
+  el: '#app',
   store,
-}).$mount('#app');
+  components: {
+    App,
+  },
+  // render: h => h(App),
+});
+//.$mount('#app');

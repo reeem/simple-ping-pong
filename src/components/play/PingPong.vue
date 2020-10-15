@@ -1,9 +1,11 @@
 <template>
-  <canvas id="pingPongCanvas" width="900" height="540"></canvas>
+  <div>
+    <score />
+    <canvas id="pingPongCanvas" width="900" height="540"></canvas>
+  </div>
 </template>
 
 <script>
-  import store from '../store/store';
   const start = () => {
     const canvas = document.getElementById('pingPongCanvas');
     const ctx = canvas.getContext('2d');
@@ -29,7 +31,7 @@
     const brickOffsetTop = 30;
     const brickOffsetLeft = 30;
 
-    let score = 0; // [todo] store
+    // let score = 0; // [todo] store
 
     const bricks = [];
     let interval = null;
@@ -79,11 +81,11 @@
       }
     }
 
-    function drawScore() {
-      ctx.font = '16px Arial';
-      ctx.fillStyle = '';
-      ctx.fillText('Score: ' + score, 8, 20);
-    }
+    // function drawScore() {
+    //   ctx.font = '16px Arial';
+    //   ctx.fillStyle = '';
+    //   ctx.fillText('Score: ' + score, 8, 20);
+    // }
 
     function draw() {
       document.getElementsByTagName('canvas')[0].focus();
@@ -91,7 +93,7 @@
       drawBrick();
       drawBall();
       drawPaddle();
-      drawScore();
+      // drawScore();
       collisonDetection();
 
       if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -106,7 +108,7 @@
         } else {
           interval && clearInterval(interval);
           // alert('Game Over');
-          location.href = '/gameover';
+          // location.href = '/gameover';
           // store.commit('gameover');
         }
       }
@@ -162,8 +164,14 @@
             ) {
               dy = -dy;
               bricks[c][r].status = -1;
-              score += 20;
-              if (score == brickRowCount * brickColumnCount * 20) {
+
+              this.$store.commit('score', 20);
+              // this.methods.score();
+              // score += 20;
+              if (
+                this.$store.state.score ==
+                brickRowCount * brickColumnCount * 20
+              ) {
                 alert('YOU WIN, CONGRATULATIONS!');
                 document.location.reload();
                 clearInterval(interval); // Needed for Chrome to end game
@@ -192,16 +200,22 @@
 
   export default {
     name: 'ping-pong',
+    data: function() {
+      return {};
+    },
     created() {
       console.log('create');
     },
     mounted() {
-      console.log('mounte');
+      console.log('pingpong', this);
       start();
     },
     methods: {
       gameover: function() {
-        store.commit('gameover');
+        this.$store.commit('gameover');
+      },
+      score: function() {
+        this.$store.commit('score', 20);
       },
     },
   };
