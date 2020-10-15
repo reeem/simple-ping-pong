@@ -16,6 +16,9 @@
 
   export default {
     name: 'App',
+    mounted() {
+      console.log('app', this);
+    },
     computed: {
       isReadyMode() {
         console.log('isReadyMode', store.state.status, 'ready');

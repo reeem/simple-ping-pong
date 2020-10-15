@@ -1,15 +1,15 @@
 <template>
-  <div><ping-pong /></div>
+  <div><Play /></div>
 </template>
 
 <script>
   import store from '../src/store/store';
-  import PingPong from '../src/components/play/PingPong.vue';
+  import Play from '~src/components/play/Play.vue';
 
   export default {
     store,
     components: {
-      PingPong,
+      Play,
     },
   };
 </script>
