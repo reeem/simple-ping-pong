@@ -8,7 +8,6 @@
 </template>
 
 <script>
-  // import PingPong from './PingPong.vue';
   import Score from './Score';
 
   export default {
